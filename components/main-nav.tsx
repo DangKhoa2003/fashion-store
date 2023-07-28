@@ -8,9 +8,10 @@ import { Category } from '@/types';
 interface MainNavProps {
       data: Category[];
       className?: string;
+      darkMode: boolean;
 }
 
-const MainNav: React.FC<MainNavProps> = ({ data, className }) => {
+const MainNav: React.FC<MainNavProps> = ({ data, className, darkMode }) => {
       const pathname = usePathname();
 
       const routes = data.map((route) => ({
@@ -28,10 +29,14 @@ const MainNav: React.FC<MainNavProps> = ({ data, className }) => {
                               key={route.href}
                               href={route.href}
                               className={cn(
-                                    'text-md font-medium tracking-wide uppercase transition-colors hover:text-black',
-                                    route.active
-                                          ? 'text-black'
+                                    'text-md font-medium tracking-wide uppercase transition-colors ease-linear duration-150',
+                                    route.active && darkMode
+                                          ? 'text-white'
                                           : 'text-neutral-500',
+
+                                    darkMode
+                                          ? 'hover:text-white'
+                                          : 'hover:text-black',
                               )}
                         >
                               {route.label}

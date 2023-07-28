@@ -1,3 +1,7 @@
+'use client';
+import AOS from 'aos';
+import { useEffect } from 'react';
+
 import { Product } from '@/types';
 
 import { Button } from '@/components/ui/button';
@@ -12,8 +16,17 @@ interface ProductListProps {
 }
 
 const ProductList: React.FC<ProductListProps> = ({ title, items }) => {
+      useEffect(() => {
+            AOS.init();
+      }, []);
       return (
-            <section className="mt-12 w-[94vw] mx-auto">
+            <section
+                  className="mt-12 w-[94vw] mx-auto"
+                  data-aos="fade-up"
+                  data-aos-delay="800"
+                  data-aos-duration="600"
+                  data-aos-easing="ease-in-out-cubic"
+            >
                   <div className="flex justify-between items-center">
                         <Heading title={title} />
                         <Button

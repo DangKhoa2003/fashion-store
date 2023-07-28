@@ -7,11 +7,11 @@ import { MoveRight } from 'lucide-react';
 const Footer = () => {
       const year = new Date().getFullYear();
       return (
-            <footer className="bg-white grid grid-cols-12 mt-8 pb-16 w-[94vw] mx-auto">
-                  <div className="col-span-3 flex flex-col justify-between">
+            <footer className="bg-white grid grid-cols-12 sm:grid-cols-2 sm:gap-12 md:gap-12 md:grid-cols-7 mt-8 pb-16 w-[94vw] sm:w-[85vw] mx-auto">
+                  <div className="col-span-3 sm:col-span-1 flex flex-col justify-between">
                         <Link href="/">
                               <div className="flex">
-                                    <div className="h-[2.4rem] w-[2.4rem] mt-[-0.1rem] pt-[0.1rem] pl-1 pr-0 rounded-full bg-black overflow-hidden">
+                                    <div className="sm:hidden md:hidden h-[2.4rem] w-[2.4rem] mt-[-0.1rem] pt-[0.1rem] pl-1 pr-0 rounded-full bg-black overflow-hidden">
                                           <h1 className="text-white uppercase font-black text-3xl">
                                                 ve
                                           </h1>
@@ -38,7 +38,7 @@ const Footer = () => {
                         </div>
                   </div>
 
-                  <div className="col-span-2">
+                  <div className="col-span-2 sm:col-span-1">
                         <h1 className="uppercase font-medium text-gray-400 text-md select-none">
                               May we help you?
                         </h1>
@@ -65,7 +65,7 @@ const Footer = () => {
                               </h2>
                         </Link>
                   </div>
-                  <div className="col-span-2">
+                  <div className="col-span-2 sm:col-span-1">
                         <h1 className="uppercase font-medium text-gray-400 text-md select-none">
                               About us
                         </h1>
@@ -92,7 +92,7 @@ const Footer = () => {
                               </h2>
                         </Link>
                   </div>
-                  <div className="col-span-2">
+                  <div className="col-span-2 sm:col-span-1">
                         <h1 className="uppercase font-medium text-gray-400 text-md select-none">
                               Services
                         </h1>
@@ -108,11 +108,11 @@ const Footer = () => {
                         </Link>
                   </div>
 
-                  <div className="col-span-3 flex flex-col justify-between">
-                        <div className="text-right font-semibold">
+                  <div className="col-span-3 sm:col-span-1 flex flex-col justify-between">
+                        <div className="text-right sm:text-left md:text-left font-semibold">
                               <h1 className="text-xl">
-                                    Have a question about
-                                    <br />
+                                    Have a question about{' '}
+                                    <br className="sm:hidden md:hidden" />
                                     our membership
                               </h1>
                               <Button
@@ -124,7 +124,7 @@ const Footer = () => {
                               </Button>
                         </div>
 
-                        <p className="text-center text-sm text-black font-medium">
+                        <p className="text-center sm:text-left md:text-left sm:mt-4 md:mt-8 text-sm text-black font-medium">
                               Versace &copy; {year} Store, Inc. All rights
                               reserved.
                         </p>

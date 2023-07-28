@@ -1,15 +1,41 @@
+'use client';
+import { useEffect, useState } from 'react';
 import { BsBox } from 'react-icons/bs';
 import { RxArrowTopRight } from 'react-icons/rx';
 import { IoTriangleSharp } from 'react-icons/io5';
-import { Button } from '@/components/ui/button';
+import Tippy from '@tippyjs/react';
+import useCart from '@/hooks/use-cart';
+import { useRouter } from 'next/navigation';
 
+import { Button } from '@/components/ui/button';
+import 'tippy.js/dist/tippy.css';
 const JoinNow = () => {
+      const [isMounted, setIsMounted] = useState(false);
+      useEffect(() => {
+            setIsMounted(true);
+      }, []);
+
+      const router = useRouter();
+      const cart = useCart();
+      if (!isMounted) {
+            return null;
+      }
       return (
-            <div className="flex justify-between w-[97vw] mx-auto">
+            <div className="flex justify-between w-[97vw] mx-auto mt-4 sm:hidden md:hidden">
                   <div className="flex items-center ml-4">
-                        <div className="border-2 z-50 cursor-pointer border-black text-3xl rounded-[50%] p-4">
-                              <BsBox />
-                        </div>
+                        <Tippy content={<span>Cart</span>} placement="top">
+                              <Button
+                                    onClick={() => router.push('/cart')}
+                                    className="relative top-0 left-0 bg-transparent hover:bg-transparent text-black"
+                              >
+                                    <div className="border-2 z-50 cursor-pointer border-black text-3xl rounded-[50%] p-4">
+                                          <BsBox />
+                                    </div>
+                                    <span className="ml-2 text-md bg-white rounded-[50%] px-2 font-medium text-red-600 absolute -top-5 right-1">
+                                          {cart.items.length}
+                                    </span>
+                              </Button>
+                        </Tippy>
 
                         <Button className="py-8 px-10 bg-black z-50 cursor-pointer text-md text-white rounded-full">
                               Join now{' '}

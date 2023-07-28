@@ -14,6 +14,8 @@ export interface Category {
 export interface Product {
       id: string;
       category: Category;
+      inStock: number;
+      quality: number
       name: string;
       price: string;
       isFeatured: boolean;

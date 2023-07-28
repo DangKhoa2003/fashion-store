@@ -11,6 +11,7 @@ import IconButton from '@/components/ui/icon-button';
 import Currency from '@/components/ui/currency';
 import useCart from '@/hooks/use-cart';
 
+export const revalidate = 0;
 interface ProductCartProps {
       data: Product;
 }

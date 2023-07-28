@@ -7,6 +7,7 @@ interface CartStore {
       items: Product[];
       addItem: (data: Product) => void;
       removeItem: (id: string) => void;
+      updateQuality: (data: Product) => void;
       removeAll: () => void;
 }
 
@@ -21,7 +22,7 @@ const useCart = create(
                         );
 
                         if (existingItem) {
-                              return toast('Item already in cart.');
+                              return toast.error('Item already in cart.');
                         }
 
                         set({ items: [...get().items, data] });
@@ -38,11 +39,21 @@ const useCart = create(
                         toast.success('Item removed from the cart.');
                   },
 
+                  updateQuality: (data: Product) => {
+                        set({
+                              items: [
+                                    ...get().items.map((item) =>
+                                          item.id === data.id ? data : item,
+                                    ),
+                              ],
+                        });
+                  },
+
                   removeAll: () => set({ items: [] }),
             }),
             {
                   name: 'cart-storage',
-                  storage: createJSONStorage(() => localStorage)
+                  storage: createJSONStorage(() => localStorage),
             },
       ),
 );

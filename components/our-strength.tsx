@@ -17,11 +17,11 @@ const OurStrength = () => {
                         <Accordion type="single" collapsible>
                               <AccordionItem value="item-1">
                                     <AccordionTrigger>
-                                          <h2 className="uppercase font-semibold w-[20%] group-hover:underline">
+                                          <h2 className="uppercase font-semibold w-[20%] sm:text-lg md:text-xl sm:w-[60%] md:w-[70%] group-hover:underline">
                                                 a quality assessment now goes
                                                 beyond the garment
                                           </h2>
-                                          <h2 className="capitalize font-bold text-9xl no-underline mb-4">
+                                          <h2 className="capitalize font-bold text-9xl sm:text-xl md:text-2xl no-underline mb-4">
                                                 quality
                                           </h2>
                                     </AccordionTrigger>
@@ -33,10 +33,10 @@ const OurStrength = () => {
 
                               <AccordionItem value="item-2">
                                     <AccordionTrigger>
-                                          <h2 className="uppercase font-semibold w-[20%] group-hover:underline">
+                                          <h2 className="uppercase font-semibold w-[20%] sm:text-lg md:text-xl sm:w-[60%] md:w-[70%] group-hover:underline">
                                                 a look defined by the fashion industry
                                           </h2>
-                                          <h2 className="capitalize font-bold text-9xl no-underline mb-4">
+                                          <h2 className="capitalize font-bold text-9xl sm:text-xl md:text-2xl no-underline mb-4">
                                                 uniqueness
                                           </h2>
                                     </AccordionTrigger>
@@ -48,17 +48,13 @@ const OurStrength = () => {
 
                               <AccordionItem value="item-3">
                                     <AccordionTrigger>
-                                          <h2 className="uppercase font-semibold w-[20%] group-hover:underline">
+                                          <h2 className="uppercase font-semibold w-[20%] sm:text-lg md:text-xl sm:w-[60%] md:w-[70%] group-hover:underline">
                                                 display all your fashion goods along with
                                           </h2>
-                                          <h2 className="capitalize font-bold text-9xl no-underline mb-4">
+                                          <h2 className="capitalize font-bold text-9xl sm:text-xl md:text-2xl no-underline mb-4">
                                                 presence
                                           </h2>
                                     </AccordionTrigger>
-                                    <AccordionContent>
-                                          Yes. It adheres to the WAI-ARIA design
-                                          pattern.
-                                    </AccordionContent>
                                     <AccordionContent>
                                           Yes. It adheres to the WAI-ARIA design
                                           pattern.
