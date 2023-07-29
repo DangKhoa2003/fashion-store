@@ -8,7 +8,6 @@ import ModalProvider from '@/providers/modal-provider';
 import ToastProvider from '@/providers/toast-provider';
 
 const font = Urbanist({ subsets: ['latin'] });
-export const revalidate = 0;
 
 export const metadata: Metadata = {
       title: 'Fashion Store',
