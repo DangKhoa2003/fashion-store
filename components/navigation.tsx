@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 import IconButton from './ui/icon-button';
 import { BadgePercent, BookMinus, Home, ShoppingBag } from 'lucide-react';
-import Tippy from '@tippyjs/react';
+
 interface NavigationProps {
       categories: Category[];
 }
@@ -94,44 +94,34 @@ const Navigation: React.FC<NavigationProps> = ({ categories }) => {
                   </div>
 
                   <div className="lg:hidden h-[80px] z-[999] fixed bottom-4 left-0 right-0 w-[85vw] mx-auto flex items-center justify-around">
-                        <Tippy content={'Home'}>
-                              <Link href={'/'}>
-                                    <IconButton
-                                          className="bg-black text-white p-4 border-none"
-                                          icon={<Home size={24} />}
-                                    />
-                              </Link>
-                        </Tippy>
+                        <Link href={'/'}>
+                              <IconButton
+                                    className="bg-black text-white p-4 border-none"
+                                    icon={<Home size={24} />}
+                              />
+                        </Link>
 
                         <div className="flex justify-between bg-white rounded-full">
-                              <Tippy content="Cart">
-                                    <Link href={'/cart'}>
-                                          <IconButton
-                                                className="bg-transparent mr-4 hover:bg-black hover:text-white text-black p-4 border-none"
-                                                icon={<ShoppingBag size={24} />}
-                                          />
-                                    </Link>
-                              </Tippy>
+                              <Link href={'/cart'}>
+                                    <IconButton
+                                          className="bg-transparent mr-4 hover:bg-black hover:text-white text-black p-4 border-none"
+                                          icon={<ShoppingBag size={24} />}
+                                    />
+                              </Link>
 
-                              <Tippy content="Sales">
-                                    <Link href={'/sales'}>
-                                          <IconButton
-                                                className="bg-transparent mx-4 hover:bg-black hover:text-white text-black p-4 border-none"
-                                                icon={
-                                                      <BadgePercent size={24} />
-                                                }
-                                          />
-                                    </Link>
-                              </Tippy>
+                              <Link href={'/sales'}>
+                                    <IconButton
+                                          className="bg-transparent mx-4 hover:bg-black hover:text-white text-black p-4 border-none"
+                                          icon={<BadgePercent size={24} />}
+                                    />
+                              </Link>
 
-                              <Tippy content="Favorite">
-                                    <Link href={'/favorite'}>
-                                          <IconButton
-                                                className="bg-transparent ml-4 hover:bg-black hover:text-white text-black p-4 border-none"
-                                                icon={<BookMinus size={24} />}
-                                          />
-                                    </Link>
-                              </Tippy>
+                              <Link href={'/favorite'}>
+                                    <IconButton
+                                          className="bg-transparent ml-4 hover:bg-black hover:text-white text-black p-4 border-none"
+                                          icon={<BookMinus size={24} />}
+                                    />
+                              </Link>
                         </div>
                   </div>
             </>
