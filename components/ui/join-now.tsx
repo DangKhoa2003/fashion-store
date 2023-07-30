@@ -8,7 +8,7 @@ import useCart from '@/hooks/use-cart';
 import { useRouter } from 'next/navigation';
 
 import { Button } from '@/components/ui/button';
-import 'tippy.js/dist/tippy.css';
+
 const JoinNow = () => {
       const [isMounted, setIsMounted] = useState(false);
       useEffect(() => {
