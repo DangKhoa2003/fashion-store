@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 import MainNav from '@/components/main-nav';
 import { Button } from '@/components/ui/button';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 import IconButton from './ui/icon-button';
 import { BadgePercent, BookMinus, Home, ShoppingBag } from 'lucide-react';
@@ -18,13 +18,15 @@ const Navigation: React.FC<NavigationProps> = ({ categories }) => {
       const [isOpen, setIsOpen] = useState(true);
       const [darkMode, setDarkMode] = useState(false);
 
-      window.addEventListener('scroll', () => {
-            if (window.scrollY >= 100) {
-                  setDarkMode(true);
-            } else {
-                  setDarkMode(false);
-            }
-      });
+      useEffect(() => {
+            window.addEventListener('scroll', () => {
+                  if (window.scrollY >= 100) {
+                        setDarkMode(true);
+                  } else {
+                        setDarkMode(false);
+                  }
+            });
+      }, []);
 
       const handleToggle = () => {
             setIsOpen(!isOpen);
@@ -112,7 +114,7 @@ const Navigation: React.FC<NavigationProps> = ({ categories }) => {
                               </Tippy>
 
                               <Tippy content="Sales">
-                                    <Link href={"/sales"}>
+                                    <Link href={'/sales'}>
                                           <IconButton
                                                 className="bg-transparent mx-4 hover:bg-black hover:text-white text-black p-4 border-none"
                                                 icon={
