@@ -35,7 +35,7 @@ const Summary = () => {
                   `${process.env.NEXT_PUBLIC_API_URL}/checkout`,
                   {
                         productIds: items.map((item) => item.id),
-                        productOrder: items
+                        productOrder: items,
                   },
             );
             window.location = response.data.url;
