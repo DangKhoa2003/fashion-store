@@ -22,7 +22,7 @@ const Banner: React.FC<BannerProps> = ({ billboards }) => {
       const formattedBillboards = billboards.map((item) => {
             const date = new Date();
             let month = date.getMonth() + 1;
-            if (parseInt(item.createdAt.slice(5, 7)) === month) {
+            if (parseInt(item.updatedAt.slice(5, 7)) === month) {
                   return item;
             }
       });

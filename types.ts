@@ -3,6 +3,7 @@ export interface Billboard {
       label: string;
       imageUrl: string;
       createdAt: string;
+      updatedAt: string;
 }
 
 export interface Category {
