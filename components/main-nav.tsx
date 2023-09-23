@@ -48,7 +48,7 @@ const MainNav: React.FC<MainNavProps> = ({ data, className, darkMode }) => {
                   <Link href={'/cart'} className="relative top-0 left-0">
                         <IconButton
                               className="text-white bg-black p-2 border-none"
-                              icon={<ShoppingBag size={24} />}
+                              icon={<ShoppingBag size={26} />}
                         />
                         <span
                               suppressHydrationWarning
