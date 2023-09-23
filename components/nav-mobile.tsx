@@ -13,7 +13,7 @@ const NavMobile: React.FC<NavMobileProps> = ({ categories }) => {
             label: route.name,
       }));
       return (
-            <div className="lg:hidden w-[85vw] mx-auto sm:-mt-[5rem] md:-mt-[10rem]">
+            <div className="lg:hidden w-[85vw] mx-auto sm:-mt-[8rem] md:-mt-[10rem]">
                   <Heading title="Category" />
                   <nav
                         className={`mr-12 mt-8 sm:mb-12 items-center space-x-4 lg:space-x-6 z-50`}

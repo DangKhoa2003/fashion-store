@@ -3,7 +3,6 @@ import Banner from '@/components/ui/banner';
 import ContentModels from '@/components/ui/content-models';
 import DashedContainer from '@/components/ui/dashed-container';
 
-import JoinNow from '@/components/ui/join-now';
 import Models from '@/components/ui/models';
 import ProductList from '@/components/product-list';
 import getProducts from '@/actions/get-products';
@@ -21,14 +20,17 @@ const Home = async () => {
       const billboards = await getBillboards();
       const categories = await getCategories();
       return (
-            <div className="relative top-0 left-0">
-                  {/* head */}
-                  <DashedContainer />
-                  <ContentModels />
-                  <Models />
-                  <JoinNow />
-                  {/* Mobile */}
-                  <NavMobile categories={categories} />
+            <>
+                  <div className="relative top-0 left-0 lg:h-screen">
+                        {/* head */}
+                        <DashedContainer />
+                        <ContentModels />
+                        <Models />
+
+                        {/* Mobile */}
+                        <NavMobile categories={categories} />
+                  </div>
+
                   {/* Banner */}
                   <Banner billboards={billboards} />
 
@@ -37,7 +39,7 @@ const Home = async () => {
                   <OurStrength />
                   {/* Post */}
                   <Post />
-            </div>
+            </>
       );
 };
 

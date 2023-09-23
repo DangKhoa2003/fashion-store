@@ -32,7 +32,7 @@ const Banner: React.FC<BannerProps> = ({ billboards }) => {
       }, []);
 
       return (
-            <div className="mt-[8rem] sm:mt-0 md:top-0 w-[94vw] sm:w-[80vw] md:w-[90vw] mx-auto grid sm:grid-cols-1 md:grid-cols-1 grid-cols-8 gap-x-6">
+            <div className="mt-16 sm:mt-16 w-[94vw] sm:w-[90vw] md:w-[90vw] mx-auto grid sm:grid-cols-1 md:grid-cols-1 grid-cols-8 gap-x-6">
                   <div
                         className={cn(
                               `col-span-5 sm:aspect-square md:aspect-square md:col-span-1 sm:col-span-1 h-[32rem] rounded-2xl bg-center bg-cover bg-no-repeat w-full flex flex-col justify-between`,
