@@ -21,7 +21,7 @@ const JoinNow = () => {
             return null;
       }
       return (
-            <div className="absolute bottom-8 left-0 right-0 flex justify-between w-[97vw] mx-auto mt-4 sm:hidden md:hidden">
+            <div className="absolute z-50 bottom-8 left-0 right-0 flex justify-between w-[97vw] mx-auto mt-4 sm:hidden md:hidden">
                   <div className="flex items-center ml-4">
                         <Button
                               onClick={() => router.push('/cart')}

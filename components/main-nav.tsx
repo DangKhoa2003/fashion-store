@@ -6,7 +6,6 @@ import { cn } from '@/lib/utils';
 import { Category } from '@/types';
 import IconButton from './ui/icon-button';
 import { ShoppingBag } from 'lucide-react';
-import useCart from '@/hooks/use-cart';
 
 interface MainNavProps {
       data: Category[];
@@ -16,7 +15,7 @@ interface MainNavProps {
 
 const MainNav: React.FC<MainNavProps> = ({ data, className, darkMode }) => {
       const pathname = usePathname();
-      const cart = useCart();
+      const cart = JSON.parse(localStorage.getItem('cart-storage') || '{}');
       const routes = data.map((route) => ({
             href: `/category/${route.id}`,
             label: route.name,
@@ -55,7 +54,7 @@ const MainNav: React.FC<MainNavProps> = ({ data, className, darkMode }) => {
                               suppressHydrationWarning
                               className="ml-2 text-md bg-white rounded-[50%] px-2 font-medium text-red-600 absolute -top-3 -right-3"
                         >
-                              {cart.items.length ? cart.items.length : null}
+                              {cart.state.items.length}
                         </span>
                   </Link>
             </nav>

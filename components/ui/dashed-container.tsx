@@ -18,9 +18,8 @@ const DashedContainer = () => {
                               <div className="border-dashed  border-r-2 border-b-2 border-neutral-500"></div>
                               <div className="border-dashed  border-b-2 border-neutral-500"></div>
                         </div>
-
-                        <JoinNow />
                   </div>
+                  <JoinNow />
             </>
       );
 };
