@@ -101,24 +101,24 @@ const Navigation: React.FC<NavigationProps> = ({ categories }) => {
                               />
                         </Link>
 
-                        <div className="flex justify-between bg-white rounded-full">
+                        <div className="flex justify-between rounded-full">
                               <Link href={'/cart'}>
                                     <IconButton
-                                          className="bg-transparent mr-4 hover:bg-black hover:text-white text-black p-4 border-none"
+                                          className="bg-transparent mr-4 bg-gray-300 hover:bg-black hover:text-white text-black p-4 border-none"
                                           icon={<ShoppingBag size={24} />}
                                     />
                               </Link>
 
                               <Link href={'/sales'}>
                                     <IconButton
-                                          className="bg-transparent mx-4 hover:bg-black hover:text-white text-black p-4 border-none"
+                                          className="bg-transparent mx-4 bg-gray-300 hover:bg-black hover:text-white text-black p-4 border-none"
                                           icon={<BadgePercent size={24} />}
                                     />
                               </Link>
 
                               <Link href={'/favorite'}>
                                     <IconButton
-                                          className="bg-transparent ml-4 hover:bg-black hover:text-white text-black p-4 border-none"
+                                          className="bg-transparent ml-4 bg-gray-300 hover:bg-black hover:text-white text-black p-4 border-none"
                                           icon={<BookMinus size={24} />}
                                     />
                               </Link>
