@@ -15,7 +15,7 @@ interface MainNavProps {
 
 const MainNav: React.FC<MainNavProps> = ({ data, className, darkMode }) => {
       const pathname = usePathname();
-      const cart = JSON.parse(localStorage.getItem('cart-storage') || '{}');
+
       const routes = data.map((route) => ({
             href: `/category/${route.id}`,
             label: route.name,
@@ -50,12 +50,6 @@ const MainNav: React.FC<MainNavProps> = ({ data, className, darkMode }) => {
                               className="text-white bg-black p-2 border-none"
                               icon={<ShoppingBag size={26} />}
                         />
-                        <span
-                              suppressHydrationWarning
-                              className="ml-2 text-md bg-white rounded-[50%] px-2 font-medium text-red-600 absolute -top-3 -right-3"
-                        >
-                              {cart.state.items.length}
-                        </span>
                   </Link>
             </nav>
       );
