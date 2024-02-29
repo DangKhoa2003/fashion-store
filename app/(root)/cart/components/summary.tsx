@@ -7,61 +7,82 @@ import { toast } from 'react-hot-toast';
 import useCart from '@/hooks/use-cart';
 import { useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
+import { Separator } from '@/components/ui/separator';
 
 export const revalidate = 0;
 
 const Summary = () => {
-      const searchParams = useSearchParams();
-      const items = useCart((state) => state.items);
-      const removeAll = useCart((state) => state.removeAll);
+    const searchParams = useSearchParams();
+    const items = useCart((state) => state.items);
+    const removeAll = useCart((state) => state.removeAll);
 
-      useEffect(() => {
-            if (searchParams.get('success')) {
-                  toast.success('Payment completed.');
-                  removeAll();
-            }
+    useEffect(() => {
+        if (searchParams.get('success')) {
+            toast.success('Payment completed.');
+            removeAll();
+        }
 
-            if (searchParams.get('canceled')) {
-                  toast.error('Something went wrong.');
-            }
-      }, [searchParams, removeAll]);
+        if (searchParams.get('canceled')) {
+            toast.error('Something went wrong.');
+        }
+    }, [searchParams, removeAll]);
 
-      const totalPrice = items.reduce((total, item) => {
-            return total + Number(item.price) * item.quality;
-      }, 0);
+    const totalPrice = items.reduce((total, item) => {
+        return total + Number(item.price) * item.quality;
+    }, 0);
 
-      const onCheckout = async () => {
-            const response = await axios.post(
-                  `${process.env.NEXT_PUBLIC_API_URL}/checkout`,
-                  {
-                        productIds: items.map((item) => item.id),
-                        productOrder: items,
-                  },
-            );
-            window.location = response.data.url;
-      };
+    const onCheckout = async () => {
+        const response = await axios.post(
+            `${process.env.NEXT_PUBLIC_API_URL}/checkout`,
+            {
+                productIds: items.map((item) => item.id),
+                productOrder: items,
+            },
+        );
+        window.location = response.data.url;
+    };
 
-      return (
-            <div className="mt-16 rounded-lg bg-gray-50 px-4 py-6 sm:p-6 lg:col-span-5 lg:mt-0 lg:p-8">
-                  <h2 className="text-lg font-medium text-gray-900">
-                        Order Summary
-                  </h2>
-                  <div className="mt-6 space-y-4">
-                        <div className="flex items-center justify-between border-t border-gray-200 pt-4">
-                              <div className="text-base font-medium text-gray-900">
-                                    Order total
-                              </div>
-                              <Currency value={totalPrice} />
+    return (
+        <div className="mt-16 rounded-lg bg-gray-50 px-4 py-6 sm:p-6 lg:col-span-5 lg:mt-0 lg:p-8">
+            <h2 className="text-lg font-medium text-gray-900">Order Summary</h2>
+            <ul>
+                {items.map((prod) => (
+                    <li
+                        key={prod.id}
+                        className="flex justify-between py-3 items-center"
+                    >
+                        <span>{prod.name}</span>
+                        <div className="flex items-center justify-center h-5">
+                            <span className='w-12 text-right'>x{prod.quality}</span>
+                            <Separator
+                                className="bg-black mx-4"
+                                orientation="vertical"
+                            />
+
+                            <Currency
+                                value={Number(prod.price) * prod.quality}
+                            />
                         </div>
-                  </div>
-                  <Button
-                        disabled={items.length === 0}
-                        onClick={onCheckout}
-                        className="w-full mt-6"
-                  >
-                        Checkout
-                  </Button>
+                    </li>
+                ))}
+            </ul>
+
+            <div className="mt-6 space-y-4">
+                <div className="flex items-center justify-between border-t border-gray-200 pt-4">
+                    <div className="text-base font-medium text-gray-900">
+                        Order total
+                    </div>
+                    <Currency value={totalPrice} />
+                </div>
             </div>
-      );
+            <Button
+                disabled={items.length === 0}
+                onClick={onCheckout}
+                className="w-full mt-6"
+            >
+                Checkout
+            </Button>
+        </div>
+    );
 };
 export default Summary;

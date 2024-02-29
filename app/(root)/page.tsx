@@ -14,33 +14,37 @@ import NavMobile from '@/components/nav-mobile';
 export const revalidate = 0;
 
 const Home = async () => {
-      const products = await getProducts({
-            isFeatured: true,
-      });
-      const billboards = await getBillboards();
-      const categories = await getCategories();
-      return (
-            <>
-                  <div className="relative top-0 left-0 lg:h-screen">
-                        {/* head */}
-                        <DashedContainer />
-                        <ContentModels />
-                        <Models />
+    const products = await getProducts({
+        isFeatured: true,
+    });
+    const billboards = await getBillboards();
+    const categories = await getCategories();
+    return (
+        <>
+            <div className="relative top-0 left-0 lg:h-screen">
+                {/* head */}
+                <DashedContainer />
+                <ContentModels />
+                <Models />
 
-                        {/* Mobile */}
-                        <NavMobile categories={categories} />
-                  </div>
+                {/* Mobile */}
+                <NavMobile categories={categories} />
+            </div>
 
-                  {/* Banner */}
-                  <Banner billboards={billboards} />
+            {/* Banner */}
+            <Banner billboards={billboards} />
 
-                  <ProductList items={products} title="Collection" />
-                  {/* Our Strength */}
-                  <OurStrength />
-                  {/* Post */}
-                  <Post />
-            </>
-      );
+            <ProductList
+                categoryId={products[0]?.category?.id}
+                items={products}
+                title="Collection"
+            />
+            {/* Our Strength */}
+            <OurStrength />
+            {/* Post */}
+            <Post />
+        </>
+    );
 };
 
 export default Home;
